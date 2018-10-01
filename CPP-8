@@ -1,0 +1,47 @@
+//phone book that maps friends' names to their respective phone numbers
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <map>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int n;
+    string names,name[n];
+    int number;
+    map<string,int>m;
+    
+    cin>>n;
+    
+    for(int i=0;i<n;i++)
+    {
+    cin>>names;
+    cin.ignore();
+    cin>>number;
+    m.insert(make_pair(names,number));    
+    }    
+
+    cin.ignore();
+    for(int i=0;i<n;i++)
+    {
+    getline(cin,name[i]);    
+    }
+    
+    map<string,int>::iterator ptr;
+    
+    for(int i=0;i<n;i++)
+    {
+    ptr=m.find(name[i]);
+    if(ptr!=m.end())
+    {
+    cout<<ptr->first<<"="<<ptr->second<<endl;
+    }
+    else cout<<"not found";
+    }
+    return 0;
+}
