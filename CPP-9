@@ -1,0 +1,56 @@
+//WORKING WITH MAPS AND USE OF SOME OF THE FUNCTIONS USED IN MAP DATA STRUCTURE. 
+//EXAMPLE TAKEN IS THE PHONE DIRECTORY HERE, WHERE NUMBERS ARE MAPPED WITH THE NAMES 
+
+#include<iostream>
+#include<map>
+#include<istream>
+#include<math.h>
+#include<sstream>
+#include<stdlib.h>
+#include<iterator>
+#include<string.h>
+using namespace std;
+int main()
+{
+	map<string,int>m; //{ {"edward",1}, {"john",2}, {"sam",3} };
+	m["edward"]=1;
+	m["john"]=2;
+	m["sam"]=3;
+	
+	cout<<m["sam"]<<endl;
+	cout<<m.at("john")<<endl;
+	cout<<m.empty()<<endl; //boolean result
+	cout<<m.size()<<endl; // size of map
+	cout<<m.max_size()<<endl; //max size of map
+	
+	/*use of function insert(pair) which inserts a pair and if value already present it does
+	return the iterator to exisiting value , it does not insert the new value */
+	
+	m.insert(pair<string,int>("san",4)); // we can use this insert(pair<type,type>(value,value))
+	
+	m.insert(make_pair("ankit",5)); // we can use this simple version insert(make_pair(value,value))
+	
+	cout<<m["san"]<<endl;
+	
+	cout<<m["ankit"]<<endl;
+	
+	map<string,int>::iterator i,j; //declaration of iterator
+	i=m.find("edward"); //points to the entry having key value=edward
+	j=m.find("san"); //points to the entry having key value=san
+	
+	map<string,int>new_m; //declaring new map type
+	new_m.insert(i,j);    //insert all entries pointed by i and j
+	cout<<new_m["john"]<<endl;
+	
+	map<string,int>::iterator ptr=m.begin();
+	advance(ptr,2);
+	cout<<"after incrementing position of ptr is "<<ptr->first;
+	
+	map<string,int>::iterator s;
+	for(s=m.begin(); s!=m.end(); s++)
+	{
+		cout<<endl<<s->first<< " " <<s->second;
+	}
+	
+	return 0;
+}
