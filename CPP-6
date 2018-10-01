@@ -1,0 +1,37 @@
+//print a string's even-indexed and odd-indexed characters as 2 Space-separated strings on a single line 
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <cstring>>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int i,j,k,l,n;
+    char str[10000],even[5000],odd[500];
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cin>>str;
+        int len=strlen(str);
+        k=0,l=0;
+        for(j=0;j<len;j++)
+        {
+            if (j%2==0)
+            {
+              even[k++]=str[j];    
+            }
+            else
+            {
+            odd[l++]=str[j];        
+            }
+        }        
+    even[k]=odd[l]='\0';
+    cout<<even<<" "<<odd<<endl;
+    }
+    return 0;
+}
