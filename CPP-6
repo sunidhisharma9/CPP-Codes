@@ -1,11 +1,10 @@
 //print a string's even-indexed and odd-indexed characters as 2 Space-separated strings on a single line 
 
-#include <cmath>
-#include <cstdio>
-#include <vector>
+
 #include <iostream>
-#include <algorithm>
 #include <cstring>>
+//  removed unused headerfiles
+
 using namespace std;
 
 
